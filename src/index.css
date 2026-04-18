@@ -2,86 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap");
+
 @layer base {
   :root {
-    /* Dark theme with cyan/teal accent */
-    --background: 0 0% 0%;
+    /* VIBE TRAVEL — тёмная тема с тёплым закатным акцентом */
+    --background: 220 15% 5%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 4%;
+    --card: 220 15% 8%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 4%;
+    --popover: 220 15% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 174 100% 50%;
+    --primary: 32 100% 60%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 10%;
+    --secondary: 220 15% 12%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 5% 55%;
 
-    --accent: 174 100% 50%;
+    /* Акцент — закатный тёплый оранжевый Байкала */
+    --accent: 32 100% 60%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 10%;
-    --input: 0 0% 4%;
-    --ring: 174 100% 50%;
+    --border: 220 15% 12%;
+    --input: 220 15% 8%;
+    --ring: 32 100% 60%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 4%;
+    --sidebar-background: 220 15% 6%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 174 100% 50%;
+    --sidebar-primary: 32 100% 60%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent: 220 15% 12%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 10%;
-    --sidebar-ring: 174 100% 50%;
+    --sidebar-border: 220 15% 12%;
+    --sidebar-ring: 32 100% 60%;
   }
 
   .dark {
-    --background: 0 0% 0%;
+    --background: 220 15% 5%;
     --foreground: 0 0% 100%;
-
-    --card: 0 0% 4%;
+    --card: 220 15% 8%;
     --card-foreground: 0 0% 100%;
-
-    --popover: 0 0% 4%;
+    --popover: 220 15% 8%;
     --popover-foreground: 0 0% 100%;
-
-    --primary: 174 100% 50%;
+    --primary: 32 100% 60%;
     --primary-foreground: 0 0% 0%;
-
-    --secondary: 0 0% 10%;
+    --secondary: 220 15% 12%;
     --secondary-foreground: 0 0% 100%;
-
-    --muted: 0 0% 25%;
-    --muted-foreground: 0 0% 63%;
-
-    --accent: 174 100% 50%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 5% 55%;
+    --accent: 32 100% 60%;
     --accent-foreground: 0 0% 0%;
-
     --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 10%;
-    --input: 0 0% 4%;
-    --ring: 174 100% 50%;
-
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 174 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 10%;
-    --sidebar-ring: 174 100% 50%;
+    --border: 220 15% 12%;
+    --input: 220 15% 8%;
+    --ring: 32 100% 60%;
   }
 }
 
@@ -113,7 +99,7 @@
 @layer utilities {
   .font-display {
     font-family: "Manrope", system-ui, sans-serif;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   @keyframes float {
@@ -122,25 +108,55 @@
       transform: translateY(0px);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-16px);
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-24px) rotate(5deg);
     }
   }
 
   .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
   }
 
-  @keyframes glow {
+  .animate-float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
+
+  @keyframes glow-warm {
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(0, 255, 209, 0.4);
+      box-shadow: 0 0 20px rgba(255, 160, 50, 0.3);
     }
     50% {
-      box-shadow: 0 0 40px rgba(0, 255, 209, 0.7);
+      box-shadow: 0 0 50px rgba(255, 160, 50, 0.6);
     }
   }
 
   .animate-glow {
-    animation: glow 3s ease-in-out infinite;
+    animation: glow-warm 3s ease-in-out infinite;
+  }
+
+  /* Glassmorphism утилита */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Текстовый градиент акцент */
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #ffa032 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
